@@ -126,10 +126,10 @@ David Whittemore's Two Hundred Fifty Pixels Wide : ${title}
 	<div>
 		<span class="gallery_nav">
 		<!--<a class="gallery_nav" href="/gallery">Featured</a> ..-->
-		<a class="gallery_nav" title="${gallery[oldest].caption}" href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/${gallery[oldest].blogurl}">Oldest</a> ..
-		<a class="gallery_nav" title="${gallery[newest].caption}" href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/${gallery[newest].blogurl}">Newest</a> ..
-		<a class="gallery_nav" title="${gallery[random].caption}" href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/${gallery[random].blogurl}">Random</a> ..
-		<a class="gallery_nav" title="show all thumbnails" href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/thumbnails.html">431 Thumbnails</a>
+		<a class="gallery_nav" title="${gallery[oldest].caption}" href="https://gallery.davidwhittemore.com/${gallery[oldest].blogurl}">Oldest</a> ..
+		<a class="gallery_nav" title="${gallery[newest].caption}" href="https://gallery.davidwhittemore.com/${gallery[newest].blogurl}">Newest</a> ..
+		<a class="gallery_nav" title="${gallery[random].caption}" href="https://gallery.davidwhittemore.com/${gallery[random].blogurl}">Random</a> ..
+		<a class="gallery_nav" title="show all thumbnails" href="https://gallery.davidwhittemore.com/thumbnails.html">431 Thumbnails</a>
 		</span>
 	</div>
 </div>
@@ -152,23 +152,23 @@ const templatize = (i) => {
 ${header({ oldest, newest, style: itemStyle, title: blogtitle })}
 <div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .5em; background: black; border: 1px solid grey; max-width: 1500px; margin: 5 auto;">
 	<div>
-		<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/${gallery[oldest].blogurl}"><img
+		<a href="https://gallery.davidwhittemore.com/${gallery[oldest].blogurl}"><img
 			alt="[oldest]"
 			src="${gallery[oldest].thumb.replace('500', '100')}"
 			border=0
 			align=absmiddle></a>
-		<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/${gallery[prev].blogurl}"><img
+		<a href="https://gallery.davidwhittemore.com/${gallery[prev].blogurl}"><img
 			alt="[prev]"
 			src="${gallery[prev].thumb.replace('500', '100')}"
 			border=0
 			align=absmiddle></a>
 	</div>
 	<div>
-		<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/${gallery[next].blogurl}"><img
+		<a href="https://gallery.davidwhittemore.com/${gallery[next].blogurl}"><img
 			alt="[next]"
 			src="${gallery[next].thumb.replace('500', '100')}"
 			border=0 align=absmiddle></a>
-		<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/${gallery[newest].blogurl}"><img
+		<a href="https://gallery.davidwhittemore.com/${gallery[newest].blogurl}"><img
 			alt="[newest]"
 			src="${gallery[newest].thumb.replace('500', '100')}"
 			border=0
@@ -180,7 +180,7 @@ ${header({ oldest, newest, style: itemStyle, title: blogtitle })}
 		<div class="photo-container">
 			<a href="${image}"><img class="image" src="${thumb?.replace('500', '750')}" alt="${caption}" width="750" height="${(height / 500) * 750}"></a>
 			<div class="details">
-				${g?.tags.map(t => { return `<a title="Filter by: ${t}" href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/tags/${fileBasename(t)}.html" style="font-size: ${fontsize(t)}em; margin-right: .25em;">${simpleTag(t)}</a>` })?.join(' .. ')}
+				${g?.tags.map(t => { return `<a title="Filter by: ${t}" href="https://gallery.davidwhittemore.com/tags/${fileBasename(t)}.html" style="font-size: ${fontsize(t)}em; margin-right: .25em;">${simpleTag(t)}</a>` })?.join(' .. ')}
 			</div>
 		</div>
 	</div>
@@ -245,7 +245,7 @@ for (var i = 0 ; i < gallery.length ; i++) {
 
 const thumbs = (title, array, url) => {
 	const card = (t) => {
-		return `<div class="thumb"><a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/${t.blogurl}"><img alt="${t.caption}" src="${t.thumb?.replace('500', '250')}" width="250"><p />${t.caption}</a><p />${t.dt?.substr(0, 4)}</div>`
+		return `<div class="thumb"><a href="https://gallery.davidwhittemore.com/${t.blogurl}"><img alt="${t.caption}" src="${t.thumb?.replace('500', '250')}" width="250"><p />${t.caption}</a><p />${t.dt?.substr(0, 4)}</div>`
 	}
 
 	const body = `${header({ oldest, newest, style: thumbnailStyle, title })}
@@ -268,65 +268,65 @@ ${header({ oldest, newest, style: indexStyle, title: `Enter` })}
 <table border=0 style="margin: 30 auto; width: 100%;">
 	<tr>
 	<td align="center" valign="middle">
-	<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/2010/04/24/montezuma_cypress_sacramento_ca.html"><img style="max-width: 100%; max-height: 100%;"
+	<a href="https://gallery.davidwhittemore.com/2010/04/24/montezuma_cypress_sacramento_ca.html"><img style="max-width: 100%; max-height: 100%;"
 		 src="https://davidwhittemore.com/images/gallery/thumb/250/201004241555_59390002_Sacramento_MontezumaCypress.jpg"
 		 border=0 align=middle></a>
 </td>
 	<td align="center" valign="middle">
-	<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/1992/random_porch_party.html"><img style="max-width: 100%; max-height: 100%;"
+	<a href="https://gallery.davidwhittemore.com/1992/random_porch_party.html"><img style="max-width: 100%; max-height: 100%;"
 		 src="https://davidwhittemore.com/images/gallery/thumb/250/porch_party.jpg"
 		 border=0 align=middle></a>
 </td>
 	<td align="center" valign="middle">
-	<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/1987/fall_pond.html"><img style="max-width: 100%; max-height: 100%;"
+	<a href="https://gallery.davidwhittemore.com/1987/fall_pond.html"><img style="max-width: 100%; max-height: 100%;"
 		 src="https://davidwhittemore.com/images/gallery/thumb/250/fall_fountain.jpg"
 		 border=0 align=middle></a>
 </td>
 	<tr>
 	<td align="center" valign="middle">
-	<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/1990/11/05/pat_fish_first_avenue_minneapolis.html"><img style="max-width: 100%; max-height: 100%;"
+	<a href="https://gallery.davidwhittemore.com/1990/11/05/pat_fish_first_avenue_minneapolis.html"><img style="max-width: 100%; max-height: 100%;"
 		 src="https://davidwhittemore.com/images/gallery/thumb/250/19901105_PatFirstAvenue.jpg"
 		 border=0 align=middle></a>
 </td>
 	<td align="center" valign="middle">
-	<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/1989/01/28/ham_in_the_trellis.html"><img style="max-width: 100%; max-height: 100%;"
+	<a href="https://gallery.davidwhittemore.com/1989/01/28/ham_in_the_trellis.html"><img style="max-width: 100%; max-height: 100%;"
 		 src="https://davidwhittemore.com/images/gallery/thumb/250/19890128_TrellisHam.jpg"
 		 border=0 align=middle></a>
 </td>
 	<td align="center" valign="middle">
-	<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/1987/02/21/snake_baby.html"><img style="max-width: 100%; max-height: 100%;"
+	<a href="https://gallery.davidwhittemore.com/1987/02/21/snake_baby.html"><img style="max-width: 100%; max-height: 100%;"
 		 src="https://davidwhittemore.com/images/gallery/thumb/250/snake.jpg"
 		 border=0 align=middle></a>
 </td>
 	<tr>
 	<td align="center" valign="middle">
-	<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/1989/06/16/alex_cosby_sets_a_fire.html"><img style="max-width: 100%; max-height: 100%;"
+	<a href="https://gallery.davidwhittemore.com/1989/06/16/alex_cosby_sets_a_fire.html"><img style="max-width: 100%; max-height: 100%;"
 		 src="https://davidwhittemore.com/images/gallery/thumb/250/alex_fire.jpg"
 		 border=0 align=middle></a>
 </td>
 	<td align="center" valign="middle">
-	<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/2010/07/14/capital_teas_annapolis_md.html"><img style="max-width: 100%; max-height: 100%;"
+	<a href="https://gallery.davidwhittemore.com/2010/07/14/capital_teas_annapolis_md.html"><img style="max-width: 100%; max-height: 100%;"
 		 src="https://davidwhittemore.com/images/gallery/thumb/250/20100713_AnnapolisCapitalTeas.jpg"
 		 border=0 align=middle></a>
 </td>
 	<td align="center" valign="middle">
-	<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/1989/03/16/blue_cafe.html"><img style="max-width: 100%; max-height: 100%;"
+	<a href="https://gallery.davidwhittemore.com/1989/03/16/blue_cafe.html"><img style="max-width: 100%; max-height: 100%;"
 		 src="https://davidwhittemore.com/images/gallery/thumb/250/19890316_CafeFlashes.jpg"
 		 border=0 align=middle></a>
 </td>
 	<tr>
 	<td align="center" valign="middle">
-	<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/1988/10/27/they_might_be_giants.html"><img style="max-width: 100%; max-height: 100%;"
+	<a href="https://gallery.davidwhittemore.com/1988/10/27/they_might_be_giants.html"><img style="max-width: 100%; max-height: 100%;"
 		 src="https://davidwhittemore.com/images/gallery/thumb/250/19881025_TMBG2.jpg"
 		 border=0 align=middle></a>
 </td>
 	<td align="center" valign="middle">
-	<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/1986/allison_4x5_paper_negative.html"><img style="max-width: 100%; max-height: 100%;"
+	<a href="https://gallery.davidwhittemore.com/1986/allison_4x5_paper_negative.html"><img style="max-width: 100%; max-height: 100%;"
 		 src="https://davidwhittemore.com/images/gallery/thumb/250/allison3.jpg"
 		 border=0 align=middle></a>
 </td>
 	<td align="center" valign="middle">
-	<a href="/Users/dw/Documents/Employment/blog.davidwhittemore.com/gallery/2001/11/18/we_spin.html"><img style="max-width: 100%; max-height: 100%;"
+	<a href="https://gallery.davidwhittemore.com/2001/11/18/we_spin.html"><img style="max-width: 100%; max-height: 100%;"
 		 src="https://davidwhittemore.com/images/gallery/thumb/250/wespin.jpg"
 		 border=0 align=middle></a>
 </td>
