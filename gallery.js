@@ -45,8 +45,8 @@ const fileBasename = (t) => `${urlSafe(t)}`;
 const globalStyle = `
 	.gallery_nav { font-weight: 900; }
 	body { background-color:#2222cc; color:#dedede; font: 1em Arial, san-serif; }
-	a:link { color: #ccccff; text-decoration: underline; text-decoration-color: #666; }
-	a:vlink { color: #ccccff; }
+	link { color: #ccccff; text-decoration: underline; text-decoration-color: #666; }
+	vlink { color: #ccccff; }
 `;
 
 const thumbnailStyle = `
