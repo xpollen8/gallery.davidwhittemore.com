@@ -108,6 +108,7 @@ const simpleTag = (t) => {
 const header = ({ oldest, newest, style, title }) => {
 const random =  Math.floor((Math.random() * (newest - oldest + 1))) + oldest;
 return  `<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>
 David Whittemore's Two Hundred Fifty Pixels Wide : ${title}
 </title>
