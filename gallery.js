@@ -151,28 +151,29 @@ const templatize = (i) => {
 	const { body, image, thumb, caption, dt, date, blogdate, blogtitle, blogurl, camera, media, lens, height, width } = g;
 	return [ blogurl, `
 ${header({ oldest, newest, style: itemStyle, title: blogtitle })}
-<div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .5em; background: black; border: 1px solid grey; max-width: 1500px; margin: 5 auto;">
+<div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .25em; background: black; border: 1px solid grey; max-width: 1500px; margin: 5 auto;">
 	<div>
 		<a href="https://gallery.davidwhittemore.com/${gallery[oldest].blogurl}"><img
 			alt="[oldest]"
 			src="${gallery[oldest].thumb.replace('500', '100')}"
-			border=0
+			width="${width * .15}"
 			align=absmiddle></a>
 		<a href="https://gallery.davidwhittemore.com/${gallery[prev].blogurl}"><img
 			alt="[prev]"
 			src="${gallery[prev].thumb.replace('500', '100')}"
-			border=0
+			width="${width * .15}"
 			align=absmiddle></a>
 	</div>
 	<div>
 		<a href="https://gallery.davidwhittemore.com/${gallery[next].blogurl}"><img
 			alt="[next]"
 			src="${gallery[next].thumb.replace('500', '100')}"
-			border=0 align=absmiddle></a>
+			width="${width * .15}"
+			align=absmiddle></a>
 		<a href="https://gallery.davidwhittemore.com/${gallery[newest].blogurl}"><img
 			alt="[newest]"
 			src="${gallery[newest].thumb.replace('500', '100')}"
-			border=0
+			width="${width * .15}"
 			align=absmiddle></a>
 	</div>
 </div>
