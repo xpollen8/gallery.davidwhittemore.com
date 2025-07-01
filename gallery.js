@@ -139,7 +139,7 @@ const header = ({ oldest, newest, style, title }) => {
 }
 
 const prettyDate = (d) => {
-	return `${d.split(' ')[0]?.replace(/-01-01/, '')}`;
+	return `${d.split(' ')[0]?.replace(/-00-00/, '')}`;
 }
 
 const safeDate = (d) => d?.substr(0, 10)?.replace(/-/g, '/')?.replace(/\/00\/00/, '');
