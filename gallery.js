@@ -72,24 +72,24 @@ const footer = () => `
 `;
 
 const itemStyle = `
-	.gallery { display: flex; flex-wrap: wrap; justify-content: center; background-color: black; border: 1px solid grey; max-width: 1515px; margin: 3 auto; }
+	.gallery { display: flex; flex-wrap: wrap; justify-content: center; background-color: black; border: 1px solid grey; max-width: 1516px; margin: auto; }
 	.column { flex: 1; }
-	.photo-container { width: 100%; max-width: 750px; margin: 0 auto; }
-	.text-container { margin: .5em auto; padding-right: .5em; padding-left: 1em; }
+	.photo-container {  }
+	.text-container {  padding: 1em; }
 	.photo-container img { width: 100%; height: auto; }
-	.body { margin-left: 1em; }
+	.body { margin-left: .75em; }
 	@media screen and (max-width: 750px) {
 		.gallery { flex-direction: column; gap: .5em; }
 		.body { margin-left: 0em; }
 		.column { flex: none; }
-		.photo-container { max-width: 750px; width: 100%; }
+		.photo-container { width: 100%; }
 		.text-container { padding-left: .5em; padding-right: .5em; }
 	}
 	.gallery_head { text-decoration: none; }
 	.image { max-width: auto; max-height: auto; }
-	.title { font-size: 1.5em; color: white; padding-bottom: .5em; }
+	.title { font-size: 1.65em; color: white; padding-bottom: 1em; }
 	.date { padding-top: 1em; font-weight: 900; }
-	.details { border: 1px solid white;  background: white; padding: .25em; }
+	.details { background: white; padding-left: .25em; padding-bottom: .25em; }
 	.details > a { color: black; }
 	.ago { font-size: .75em; color: #9f9f9f; }
 `;
@@ -98,7 +98,7 @@ const fontsize = (t) => {
 	const frac = tags[t]?.length / Object.keys(tags)?.length;
 	const value = Math.max(0, Math.min(1, frac));
 	// Calculate scaled value using natural logarithm
-	return 0.8 + ((Math.log(value + 1) / Math.log(2)) * 3);
+	return 0.8 + ((Math.log(value + 1) / Math.log(2)) * 1.5);
 }
 
 const simpleTag = (t) => {
@@ -158,32 +158,32 @@ const templatize = (i) => {
 	const blogurl = safeBlogurl(g);
 	return [ blogurl, `
 ${header({ oldest, newest, style: itemStyle, title: blogtitle })}
-<div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .25em; background: black; border: 1px solid grey; max-width: 1508px; margin: 3 auto;">
+<div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .5em; background: black; border: 1px solid grey; max-width: 1508px; margin: 3 auto;">
 	<div>
 		<!--
 		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[oldest])}"><img
 			alt="[oldest]"
 			src="${gallery[oldest].thumb.replace('500', '100')}"
-			width="100"
+			height="80"
 			align=absmiddle></a>
 		-->
 		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[prev])}"><img
 			alt="[prev]"
 			src="${gallery[prev].thumb.replace('500', '100')}"
-			width="100"
+			height="80"
 			align=absmiddle></a>
 	</div>
 	<div>
 		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[next])}"><img
 			alt="[next]"
 			src="${gallery[next].thumb.replace('500', '100')}"
-			width="100"
+			height="80"
 			align=absmiddle></a>
 		<!--
 		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[newest])}"><img
 			alt="[newest]"
 			src="${gallery[newest].thumb.replace('500', '100')}"
-			width="100"
+			height="80"
 			align=absmiddle></a>
 			-->
 	</div>
@@ -262,7 +262,7 @@ const thumbs = (title, array, url) => {
 	}
 
 	const body = `${header({ oldest, newest, style: thumbnailStyle, title })}
-	<div style="display: flex; flex-wrap: wrap; justify-content: center; background-color: black; border: 1px solid grey; max-width: 1485px; margin: 3 auto; padding: 1em;">
+	<div style="display: flex; flex-wrap: wrap; justify-content: center; background-color: black; border: 1px solid grey; max-width: 1500px; margin: 3 auto; padding: .5em;">
 		<div style="font-size: 2em; color: white;">${title}</div>
 	</div>
 	<div style="display: flex; flex-wrap: wrap; justify-content: space-evenly; background-color: black; border: 1px solid grey; max-width: 1515px; margin: 3 auto;">
