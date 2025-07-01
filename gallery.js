@@ -164,26 +164,26 @@ ${header({ oldest, newest, style: itemStyle, title: blogtitle })}
 		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[oldest])}"><img
 			alt="[oldest]"
 			src="${gallery[oldest].thumb.replace('500', '100')}"
-			height="80"
+			height="75"
 			align=absmiddle></a>
 		-->
 		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[prev])}"><img
 			alt="[prev]"
 			src="${gallery[prev].thumb.replace('500', '100')}"
-			height="80"
+			height="75"
 			align=absmiddle></a>
 	</div>
 	<div>
 		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[next])}"><img
 			alt="[next]"
 			src="${gallery[next].thumb.replace('500', '100')}"
-			height="80"
+			height="75"
 			align=absmiddle></a>
 		<!--
 		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[newest])}"><img
 			alt="[newest]"
 			src="${gallery[newest].thumb.replace('500', '100')}"
-			height="80"
+			height="75"
 			align=absmiddle></a>
 			-->
 	</div>
