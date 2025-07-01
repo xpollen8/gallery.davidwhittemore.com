@@ -22,6 +22,7 @@ const writeFile = async (url, body) => {
 `<DOCTYPE html>
 <!-- github.com/xpollen8/gallery.davidwhittemore.com -->
 <!-- generated ${new Date()} -->
+<!-- via: node gallery.js -->
 	<html>
 		${body}
 	</html>
