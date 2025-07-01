@@ -43,17 +43,17 @@ const fileBasename = (t) => `${urlSafe(t)}`;
 
 const globalStyle = `
 	.gallery_nav { font-weight: 900; }
-	body { background-color:#2222cc; color:#dedede; font: 1em Arial, san-serif; }
+	body { background-color:#2222cc; color:#dedede; font: 1em Arial, san-serif; margin: 3px; }
 	a { color: #ccccff; text-decoration: underline; text-decoration-color: #666; }
 	a:visited { color: #ccccff; }
 `;
 
 const thumbnailStyle = `
-	.thumb { max-width: 250px; border: 1px solid gray; padding: .25em; text-align: center; margin: .5em; }
+	.thumb { max-width: 400px; border: 1px solid grey; padding: .25em; text-align: center; margin: .5em; }
 `;
 
 const footer = () => `
-	<div style="display: flex; flex-wrap: wrap; justify-content: space-evenly; background-color: black; border: 1px solid grey; max-width: 1485px; margin: 5 auto; padding: .5em;">
+	<div style="display: flex; flex-wrap: wrap; justify-content: space-evenly; background-color: black; border: 1px solid grey; max-width: 1485px; margin: 3 auto; padding: .5em;">
 		<div style="width: 50%;">
 			<a href="https://davidwhittemore.com" style="letter-spacing: 3px;"> David Whittemore </a>
 			<br />
@@ -61,6 +61,7 @@ const footer = () => `
 		</div>
 		<div style="width: 50%;">
 			<a href="https://adjective.com"><img
+				width="100"
 				alt="try yr luck!"
 				src="https://adjective.com/images/random/_${Math.floor(Math.random() * (693 - 1 + 1) + 1)}.jpg"
 				style="float:right;"></a>
@@ -69,7 +70,7 @@ const footer = () => `
 `;
 
 const itemStyle = `
-	.gallery { display: flex; flex-wrap: wrap; justify-content: center; background-color: black; border: 1px solid grey; max-width: 1515px; margin: 5 auto; }
+	.gallery { display: flex; flex-wrap: wrap; justify-content: center; background-color: black; border: 1px solid grey; max-width: 1515px; margin: 3 auto; }
 	.column { flex: 1; }
 	.photo-container { width: 100%; max-width: 750px; margin: 0 auto; }
 	.text-container { margin: .5em auto; padding-right: .5em; padding-left: 1em; }
@@ -119,7 +120,7 @@ const header = ({ oldest, newest, style, title }) => {
 		</style>
 	</head>
 	<body>
-	<div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .5em; background: black; border: 1px solid grey; max-width: 1500px; margin: 5 auto;">
+	<div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .5em; background: black; border: 1px solid grey; max-width: 1500px; margin: 3 auto;">
 		<div>
 			<div style="color: white; font-size: 1.5em;">
 				<a class="gallery_head" href="/">David Whittemore's photo gallery</a>
@@ -155,30 +156,34 @@ const templatize = (i) => {
 	const blogurl = safeBlogurl(g);
 	return [ blogurl, `
 ${header({ oldest, newest, style: itemStyle, title: blogtitle })}
-<div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .25em; background: black; border: 1px solid grey; max-width: 1500px; margin: 5 auto;">
+<div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .25em; background: black; border: 1px solid grey; max-width: 1508px; margin: 3 auto;">
 	<div>
+		<!--
 		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[oldest])}"><img
 			alt="[oldest]"
 			src="${gallery[oldest].thumb.replace('500', '100')}"
-			width="${width * .15}"
+			width="100"
 			align=absmiddle></a>
+		-->
 		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[prev])}"><img
 			alt="[prev]"
 			src="${gallery[prev].thumb.replace('500', '100')}"
-			width="${width * .15}"
+			width="100"
 			align=absmiddle></a>
 	</div>
 	<div>
 		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[next])}"><img
 			alt="[next]"
 			src="${gallery[next].thumb.replace('500', '100')}"
-			width="${width * .15}"
+			width="100"
 			align=absmiddle></a>
+		<!--
 		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[newest])}"><img
 			alt="[newest]"
 			src="${gallery[newest].thumb.replace('500', '100')}"
-			width="${width * .15}"
+			width="100"
 			align=absmiddle></a>
+			-->
 	</div>
 </div>
 <div class="gallery">
@@ -251,14 +256,14 @@ for (var i = 0 ; i < gallery.length ; i++) {
 
 const thumbs = (title, array, url) => {
 	const card = (t) => {
-		return `<div class="thumb"><a href="https://gallery.davidwhittemore.com/${safeBlogurl(t)}"><img alt="${t.caption}" src="${t.thumb?.replace('500', '250')}" width="250"><p />${t.caption}</a><p />${t.dt?.substr(0, 4)}</div>`
+		return `<div class="thumb"><a href="https://gallery.davidwhittemore.com/${safeBlogurl(t)}"><img alt="${t.caption}" src="${t.thumb}" width="400"><p />${t.caption}</a><p />${t.dt?.substr(0, 4)}</div>`
 	}
 
 	const body = `${header({ oldest, newest, style: thumbnailStyle, title })}
-	<div style="display: flex; flex-wrap: wrap; justify-content: center; background-color: black; border: 1px solid grey; max-width: 1485px; margin: 5 auto; padding: 1em;">
+	<div style="display: flex; flex-wrap: wrap; justify-content: center; background-color: black; border: 1px solid grey; max-width: 1485px; margin: 3 auto; padding: 1em;">
 		<div style="font-size: 2em; color: white;">${title}</div>
 	</div>
-	<div style="display: flex; flex-wrap: wrap; justify-content: space-evenly; background-color: black; border: 1px solid grey; max-width: 1515px; margin: 5 auto;">
+	<div style="display: flex; flex-wrap: wrap; justify-content: space-evenly; background-color: black; border: 1px solid grey; max-width: 1515px; margin: 3 auto;">
 		${array.sort((a, b) => new Date(b.dt) - new Date(a.dt))?.map(card).join('')}
 	</div>
 	${footer()}
