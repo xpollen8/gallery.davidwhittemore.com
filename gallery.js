@@ -38,7 +38,7 @@ const cleanup = (s) => {
 	return s.replace(/<p>/ig, '<p />');
 }
 
-const urlSafe = (u) => u?.replace(/\W/g, ' ')?.replace(/  /g, ' ')?.replace(/ /g, '_')?.replace(/__/g, '_')?.replace(/_$/, '')?.toLowerCase();
+const urlSafe = (u) => u?.replace(/\W/g, ' ')?.replace(/  /g, ' ')?.replace(/ /g, '_')?.replace(/__/g, '_')?.replace(/_$/g, '')?.replace(/^_/g, '')?.toLowerCase();
 const fileBasename = (t) => `${urlSafe(t)}`;
 //const tagBasename = (t) => `tag_${fileBasename(t)}`;
 
