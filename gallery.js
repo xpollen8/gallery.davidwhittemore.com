@@ -98,7 +98,7 @@ const fontsize = (t) => {
 	const frac = tags[t]?.length / Object.keys(tags)?.length;
 	const value = Math.max(0, Math.min(1, frac));
 	// Calculate scaled value using natural logarithm
-	return 0.8 + ((Math.log(value + 1) / Math.log(2)) * 1.5);
+	return 0.85 + ((Math.log(value + 1) / Math.log(2)) * 1.5);
 }
 
 const simpleTag = (t) => {
