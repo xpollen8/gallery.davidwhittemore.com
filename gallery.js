@@ -55,7 +55,7 @@ const thumbnailStyle = `
 `;
 
 const footer = () => `
-	<div style="display: flex; flex-wrap: wrap; justify-content: space-evenly; background-color: black; border: 1px solid grey; max-width: 1485px; margin: 3 auto; padding: .5em;">
+	<div style="display: flex; flex-wrap: wrap; justify-content: space-evenly; background-color: black; border: 1px solid grey; max-width: 1500px; margin: 3 auto; padding: .5em;">
 		<div style="width: 50%;">
 			<a href="https://davidwhittemore.com" style="letter-spacing: 3px;"> David Whittemore </a>
 			<br />
