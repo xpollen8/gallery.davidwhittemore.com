@@ -21,6 +21,7 @@ const writeFile = async (url, body) => {
 		fs.writeFileSync(url,
 `<DOCTYPE html>
 <!-- github.com/xpollen8/gallery.davidwhittemore.com -->
+<!-- generated ${new Date()} -->
 	<html>
 		${body}
 	</html>
