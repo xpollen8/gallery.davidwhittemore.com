@@ -194,7 +194,7 @@ ${header({ oldest, newest, style: itemStyle, title: blogtitle })}
 		<div class="text-container">
 			<div class="title">${caption}</div>
 			<div class="body">${body}</div>
-			<div id="dt" style="display: none;">${dt}</div>
+			<div id="dt" style="display: none;">${dt?.replace(/00-00/, '01-01')}</div>
 			<div class="date">${prettyDate(dt)}</div>
 			<div class="ago" id="fromnow"/>
 		</div>
@@ -202,7 +202,7 @@ ${header({ oldest, newest, style: itemStyle, title: blogtitle })}
 </div>
 <script>
 	const data = ${JSON.stringify(g)};
-	const dt = new Date(document.getElementById('dt')?.innerHTML).getTime().replace(/00-00/, '01-01');
+	const dt = new Date(document.getElementById('dt')?.innerHTML).getTime();
 	const fromnow = document.getElementById('fromnow');
 
 	function time_ago(input) {
