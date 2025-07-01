@@ -40,7 +40,6 @@ const cleanup = (s) => {
 
 const urlSafe = (u) => u?.replace(/\W/g, ' ')?.replace(/  /g, ' ')?.replace(/ /g, '_')?.replace(/__/g, '_')?.replace(/_$/g, '')?.replace(/^_/g, '')?.toLowerCase();
 const fileBasename = (t) => `${urlSafe(t)}`;
-//const tagBasename = (t) => `tag_${fileBasename(t)}`;
 
 const globalStyle = `
 	.gallery_nav { font-weight: 900; }
@@ -105,41 +104,45 @@ const simpleTag = (t) => {
 	return t;
 }
 
+const safeBlogurl = (g) => safeDate(g.dt) + "/" + urlSafe(g.caption) + ".html";
+
 const header = ({ oldest, newest, style, title }) => {
-const random =  Math.floor((Math.random() * (newest - oldest + 1))) + oldest;
-return  `<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>
-David Whittemore's Two Hundred Fifty Pixels Wide : ${title}
-</title>
-	<style>
-		${globalStyle}
-		${style}
-	</style>
-</head>
-<body>
-<div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .5em; background: black; border: 1px solid grey; max-width: 1500px; margin: 5 auto;">
-	<div>
-		<div style="color: white; font-size: 1.5em;">
-			<a class="gallery_head" href="/">David Whittemore's photo gallery</a>
+	const random =  Math.floor((Math.random() * (newest - oldest + 1))) + oldest;
+	return  `<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>
+	David Whittemore's Two Hundred Fifty Pixels Wide : ${title}
+	</title>
+		<style>
+			${globalStyle}
+			${style}
+		</style>
+	</head>
+	<body>
+	<div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .5em; background: black; border: 1px solid grey; max-width: 1500px; margin: 5 auto;">
+		<div>
+			<div style="color: white; font-size: 1.5em;">
+				<a class="gallery_head" href="/">David Whittemore's photo gallery</a>
+			</div>
+		</div>
+		<div>
+			<span class="gallery_nav">
+			<!--<a class="gallery_nav" href="/gallery">Featured</a> ..-->
+			<a class="gallery_nav" title="${gallery[oldest].caption}" href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[oldest])}">Oldest</a> ..
+			<a class="gallery_nav" title="${gallery[newest].caption}" href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[newest])}">Newest</a> ..
+			<a class="gallery_nav" title="${gallery[random].caption}" href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[random])}">Random</a> ..
+			<a class="gallery_nav" title="show all thumbnails" href="https://gallery.davidwhittemore.com/thumbnails.html">431 Thumbnails</a>
+			</span>
 		</div>
 	</div>
-	<div>
-		<span class="gallery_nav">
-		<!--<a class="gallery_nav" href="/gallery">Featured</a> ..-->
-		<a class="gallery_nav" title="${gallery[oldest].caption}" href="https://gallery.davidwhittemore.com/${gallery[oldest].blogurl}">Oldest</a> ..
-		<a class="gallery_nav" title="${gallery[newest].caption}" href="https://gallery.davidwhittemore.com/${gallery[newest].blogurl}">Newest</a> ..
-		<a class="gallery_nav" title="${gallery[random].caption}" href="https://gallery.davidwhittemore.com/${gallery[random].blogurl}">Random</a> ..
-		<a class="gallery_nav" title="show all thumbnails" href="https://gallery.davidwhittemore.com/thumbnails.html">431 Thumbnails</a>
-		</span>
-	</div>
-</div>
-`;
+	`;
 }
 
 const prettyDate = (d) => {
 	return `${d.split(' ')[0]?.replace(/-01-01/, '')}`;
 }
+
+const safeDate = (d) => d?.substr(0, 10)?.replace(/-/g, '/')?.replace(/\/00\/00/, '');
 
 const oldest = 0;
 const newest = gallery?.length - 1;
@@ -148,29 +151,30 @@ const templatize = (i) => {
 	const g = gallery[i];
 	const prev = i ? i - 1 : newest;
 	const next = i < newest ? i + 1 : 0;
-	const { body, image, thumb, caption, dt, date, blogdate, blogtitle, blogurl, camera, media, lens, height, width } = g;
+	const { body, image, thumb, caption, dt, date, blogdate, blogtitle, camera, media, lens, height, width } = g;
+	const blogurl = safeBlogurl(g);
 	return [ blogurl, `
 ${header({ oldest, newest, style: itemStyle, title: blogtitle })}
 <div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .25em; background: black; border: 1px solid grey; max-width: 1500px; margin: 5 auto;">
 	<div>
-		<a href="https://gallery.davidwhittemore.com/${gallery[oldest].blogurl}"><img
+		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[oldest])}"><img
 			alt="[oldest]"
 			src="${gallery[oldest].thumb.replace('500', '100')}"
 			width="${width * .15}"
 			align=absmiddle></a>
-		<a href="https://gallery.davidwhittemore.com/${gallery[prev].blogurl}"><img
+		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[prev])}"><img
 			alt="[prev]"
 			src="${gallery[prev].thumb.replace('500', '100')}"
 			width="${width * .15}"
 			align=absmiddle></a>
 	</div>
 	<div>
-		<a href="https://gallery.davidwhittemore.com/${gallery[next].blogurl}"><img
+		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[next])}"><img
 			alt="[next]"
 			src="${gallery[next].thumb.replace('500', '100')}"
 			width="${width * .15}"
 			align=absmiddle></a>
-		<a href="https://gallery.davidwhittemore.com/${gallery[newest].blogurl}"><img
+		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[newest])}"><img
 			alt="[newest]"
 			src="${gallery[newest].thumb.replace('500', '100')}"
 			width="${width * .15}"
@@ -247,7 +251,7 @@ for (var i = 0 ; i < gallery.length ; i++) {
 
 const thumbs = (title, array, url) => {
 	const card = (t) => {
-		return `<div class="thumb"><a href="https://gallery.davidwhittemore.com/${t.blogurl}"><img alt="${t.caption}" src="${t.thumb?.replace('500', '250')}" width="250"><p />${t.caption}</a><p />${t.dt?.substr(0, 4)}</div>`
+		return `<div class="thumb"><a href="https://gallery.davidwhittemore.com/${safeBlogurl(t)}"><img alt="${t.caption}" src="${t.thumb?.replace('500', '250')}" width="250"><p />${t.caption}</a><p />${t.dt?.substr(0, 4)}</div>`
 	}
 
 	const body = `${header({ oldest, newest, style: thumbnailStyle, title })}
