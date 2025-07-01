@@ -158,7 +158,7 @@ const templatize = (i) => {
 	const blogurl = safeBlogurl(g);
 	return [ blogurl, `
 ${header({ oldest, newest, style: itemStyle, title: blogtitle })}
-<div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .5em; background: black; border: 1px solid grey; max-width: 1508px; margin: 3 auto;">
+<div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .5em; background: black; border: 1px solid grey; max-width: 1500px; margin: 3 auto;">
 	<div>
 		<!--
 		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[oldest])}"><img
