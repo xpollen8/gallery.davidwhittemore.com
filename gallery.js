@@ -202,7 +202,7 @@ ${header({ oldest, newest, style: itemStyle, title: blogtitle })}
 </div>
 <script>
 	const data = ${JSON.stringify(g)};
-	const dt = new Date(document.getElementById('dt')?.innerHTML).getTime();
+	const dt = new Date(document.getElementById('dt')?.innerHTML).getTime().replace(/00-00/, '01-01');
 	const fromnow = document.getElementById('fromnow');
 
 	function time_ago(input) {
