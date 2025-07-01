@@ -51,7 +51,7 @@ const globalStyle = `
 `;
 
 const thumbnailStyle = `
-	.thumb { max-width: 400px; border: 1px solid grey; padding: .25em; text-align: center; margin: .5em; }
+	.thumb { max-width: 350px; border: 1px solid grey; padding: .25em; text-align: center; margin: .5em; }
 `;
 
 const footer = () => `
@@ -258,7 +258,7 @@ for (var i = 0 ; i < gallery.length ; i++) {
 
 const thumbs = (title, array, url) => {
 	const card = (t) => {
-		return `<div class="thumb"><a href="https://gallery.davidwhittemore.com/${safeBlogurl(t)}"><img alt="${t.caption}" src="${t.thumb}" width="400"><p />${t.caption}</a><p />${t.dt?.substr(0, 4)}</div>`
+		return `<div class="thumb"><a href="https://gallery.davidwhittemore.com/${safeBlogurl(t)}"><img alt="${t.caption}" src="${t.thumb}" width="350"><p />${t.caption}</a><p />${t.dt?.substr(0, 4)}</div>`
 	}
 
 	const body = `${header({ oldest, newest, style: thumbnailStyle, title })}
