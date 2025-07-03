@@ -9,6 +9,10 @@ const fs = require('node:fs');
  */
 const gallery = require('./gallery.json');
 
+//const g2 = gallery.map(g => { delete g.story; return g });
+//console.log(JSON.stringify(g2, null, 4));
+//exit;
+
 const writeFile = async (url, body) => {
 	const spl =  url.split( '/' );
 	const path = spl.slice( 0, -1 ).join( '/' );
