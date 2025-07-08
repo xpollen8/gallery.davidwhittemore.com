@@ -2,16 +2,8 @@ const fs = require('node:fs');
 
 /*
 		node o.js>o.html
-
-	TODO
-		write each item to own file
-		write tags to tag files
  */
 const gallery = require('./gallery.json');
-
-//const g2 = gallery.map(g => { delete g.story; return g });
-//console.log(JSON.stringify(g2, null, 4));
-//exit;
 
 const writeFile = async (url, body) => {
 	const spl =  url.split( '/' );
@@ -164,13 +156,6 @@ const templatize = (i) => {
 ${header({ oldest, newest, style: itemStyle, title: blogtitle })}
 <div style="flex-wrap: wrap; display: flex; align-items: center; justify-content: space-between; padding: .5em; background: black; border: 1px solid grey; max-width: 1500px; margin: 3 auto;">
 	<div>
-		<!--
-		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[oldest])}"><img
-			alt="[oldest]"
-			src="${gallery[oldest].thumb.replace('500', '100')}"
-			height="75"
-			align=absmiddle></a>
-		-->
 		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[prev])}"><img
 			alt="[prev]"
 			src="${gallery[prev].thumb.replace('500', '100')}"
@@ -183,13 +168,6 @@ ${header({ oldest, newest, style: itemStyle, title: blogtitle })}
 			src="${gallery[next].thumb.replace('500', '100')}"
 			height="75"
 			align=absmiddle></a>
-		<!--
-		<a href="https://gallery.davidwhittemore.com/${safeBlogurl(gallery[newest])}"><img
-			alt="[newest]"
-			src="${gallery[newest].thumb.replace('500', '100')}"
-			height="75"
-			align=absmiddle></a>
-			-->
 	</div>
 </div>
 <div class="gallery">
